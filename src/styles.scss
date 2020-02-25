@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis:400,800&display=swap');
+
+$background:#cce7f8;
+$lighter-shadow: lighten($background, 25%);
+$darker-shadow: darken($background, 25%);
+@mixin neu-shadow($x, $y, $z){
+  box-shadow: $x $x $z rgba($darker-shadow, 0.2), $y $y $z rgba($lighter-shadow, 0.3); 
+}
+body {
+  background: $background;
+}
+* {
+  box-sizing: border-box;
+}
+button {
+  border: none;
+}
+.App {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Dosis';
+  flex-direction: column;
+  color: white;
+  text-transform: uppercase;
+  .body {
+    margin-top: 3em;
+    width: 25em;
+    height: 30em;
+    display: flex;
+    background: $background;
+    border-radius: 30px;
+    box-sizing: content-box;
+    @include neu-shadow(10px, -10px, 40px);
+    padding: 2em;
+    flex-direction: column;
+    .numbers {
+      flex: 1 0 70%;
+      display: flex;
+      flex-flow: wrap;
+      align-items: flex-start;
+      justify-content: space-evenly;
+    }
+    .screen{
+      width: 100%;
+      height: 2em;
+      background: #404040;
+      box-shadow: -5px -5px 10px rgba($darker-shadow, 0.2) inset, 5px 5px 10px rgba($lighter-shadow, 0.2) inset; 
+      padding: 0.5em;
+      margin: 0.5em;
+      border-radius: 15px;
+      color: yellow;
+      text-align: right;
+      font-size: 25px;
+      line-height: 1em
+    }
+    
+  }
+  .button {
+    min-width: 3em;
+    min-height: 3em;
+    color: black;
+    border-radius: 50%;
+    background: $background;
+    font-size: 30px;
+    display: flex;
+    font-weight: 800;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    transition: all 0.1s ease-in;
+    box-shadow: 5px 5px 10px rgba($darker-shadow, 0.2), -5px -5px 10px rgba($lighter-shadow, 0.3);    
+    &.large{
+      border-radius: 10px;
+    }
+    &.equals{
+      border: 5px solid rgba(white, 0.3);
+    }
+    &:active:hover {
+      background: rgba($darker-shadow, 0.1);
+      box-shadow: none;      
+      &.inset {
+        box-shadow: 5px 5px 10px rgba($darker-shadow, 0.2) inset, -5px -5px 10px rgba($lighter-shadow, 0.3) inset;    
+        background: linear-gradient(145deg, rgba($darker-shadow, 0.1), $background);
+      }
+    }
+  }
+}
