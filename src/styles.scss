@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis:400,800&display=swap');
 
-$background:#cce7f8;
+$background:#97a9aa;
 $lighter-shadow: lighten($background, 25%);
 $darker-shadow: darken($background, 25%);
 @mixin neu-shadow($x, $y, $z){
@@ -82,7 +82,7 @@ button {
       box-shadow: none;      
       &.inset {
         box-shadow: 5px 5px 10px rgba($darker-shadow, 0.2) inset, -5px -5px 10px rgba($lighter-shadow, 0.3) inset;    
-        background: linear-gradient(145deg, rgba($darker-shadow, 0.1), $background);
+        background: linear-gradient(145deg, $background, $background);
       }
     }
   }
